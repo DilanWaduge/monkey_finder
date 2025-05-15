@@ -15,7 +15,21 @@ public partial class MonkeysViewModel : BaseViewModel
         // GetMonkeysCommand.Execute(null);
     }
 
-    public ObservableCollection<Monkey> Monkeys { get; set; } = new();
+    public ObservableCollection<Monkey> Monkeys { get; set; } = [];
+
+    [RelayCommand]
+    public async Task GoToDetailsAsync(Monkey monkey)
+    {
+        if (monkey is null)
+        {
+            return;
+        }
+
+        await Shell.Current.GoToAsync(
+            $"{nameof(DetailsPage)}",
+            true,
+            new Dictionary<string, object> { { "Monkey", monkey } });
+    }
 
     [RelayCommand]
     public async Task GetMonkeysAsync()

@@ -20,8 +20,10 @@ public static class MauiProgram
 
         builder.Services.TryAddSingleton<MonkeyService>();
         builder.Services.TryAddSingleton<MonkeysViewModel>();
+        builder.Services.TryAddTransient<MonkeyDetailsViewModel>();
 
         builder.Services.TryAddSingleton<MainPage>();
+        builder.Services.TryAddTransient<DetailsPage>();
 
 #if DEBUG
         builder.Logging.AddDebug();
