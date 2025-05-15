@@ -61,6 +61,14 @@
                 Command="{Binding Path=GetMonkeysCommand}"
                 IsEnabled="{Binding Path=IsNotBusy}" />
 
+        <Button Text="Find Closest"
+                Grid.Row="1"
+                Grid.Column="1"
+                Margin="8"
+                Style="{StaticResource ButtonOutline}"
+                Command="{Binding GetClosestMonkeyCommand}"
+                IsEnabled="{Binding IsNotBusy}" />
+
         <ActivityIndicator IsVisible="{Binding  Path=IsBusy}"
                            IsRunning="{Binding Path=IsBusy}"
                            HorizontalOptions="FillAndExpand"
